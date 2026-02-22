@@ -118,7 +118,7 @@ quiz_game:
 endscreen:
   title: "Chúc mừng bạn đã hoàn thành!"
   message: "Bạn đã thu thập đủ các huy hiệu di sản. Hãy chia sẻ thành tích này với bạn bè nhé."
-  share_text: "Tôi vừa hoàn thành hành trình khám phá Dấu Di Sản miền Trung!"
+  share_text: "Tôi vừa hoàn thành hành trình khám phá Dấu Di Sản!"
   share_button: "Chia sẻ lên Facebook"
   replay_button: "Xem lại hành trình"
   share_success_toast: "Đã chia sẻ thành công!"
