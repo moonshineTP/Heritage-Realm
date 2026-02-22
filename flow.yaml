@@ -6,7 +6,7 @@
 # hệ thống sẽ tự động cập nhật giao diện mà không cần sửa code.
 
 project:
-  name: "Dấu Di Sản: Miền Trung"
+  name: "Dấu Di Sản"
   description: "Hành trình khám phá dải đất miền Trung."
   theme:
     primary_color: "#8b0000" # Đỏ đô (màu cung đình)
@@ -35,7 +35,6 @@ loading_screen:
 intro_screen:
   background_image: "assets/images/intro-bg.jpg"
   title: "Dấu Di Sản"
-  subtitle: "Miền Trung"
   intro_text: "Chào mừng bạn đến với hành trình khám phá. Hãy bật âm thanh và làm theo hướng dẫn để bắt đầu."
   start_button: "Bắt đầu hành trình"
   transition_effect: "curtain" # Màn hình tách đôi mở ra hai bên
