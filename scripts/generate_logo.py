@@ -1,0 +1,8 @@
+import os
+
+logo_svg = '''<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="#8b0000" />
+  <text x="50" y="55" font-family="Arial" font-size="20" fill="#d4af37" text-anchor="middle">LOGO</text>
+</svg>'''
+with open('assets/icons/logo.svg', 'w') as f:
+    f.write(logo_svg)
