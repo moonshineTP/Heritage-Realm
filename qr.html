@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quét mã - Dấu Di Sản</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            max-width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #8B2500; /* Đỏ son / Đỏ cung đình Huế */
+            /* Pattern vân mây / sóng nước truyền thống trung lập */
+            background-image: 
+                radial-gradient(circle at center, rgba(218, 165, 32, 0.15) 0%, transparent 70%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M30 30c0-8.284-6.716-15-15-15S0 21.716 0 30s6.716 15 15 15 15-6.716 15-15zm15 15c-8.284 0-15-6.716-15-15s6.716-15 15-15 15 6.716 15 15-6.716 15-15 15zm0-30C36.716 15 30 8.284 30 0s6.716-15 15-15 15 6.716 15 15-6.716 15-15 15zM15 15C6.716 15 0 8.284 0 0s6.716-15 15-15 15 6.716 15 15-6.716 15-15 15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Decorative elements - Họa tiết kỷ hà / hồi văn trung lập */
+        .deco-top, .deco-bottom {
+            position: absolute;
+            width: 100%;
+            height: 24px;
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M2 2h20v20H2z' fill='none' stroke='%23DAA520' stroke-width='1' stroke-opacity='0.5'/%3E%3Cpath d='M6 6h12v12H6z' fill='none' stroke='%23DAA520' stroke-width='1' stroke-opacity='0.8'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+        .deco-top { top: 20px; }
+        .deco-bottom { bottom: 20px; }
+
+        .display-container {
+            background: var(--bg-color);
+            padding: 50px 70px;
+            border-radius: 8px; /* Bo góc vuông vức hơn, mang tính kiến trúc */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            text-align: center;
+            max-width: 550px;
+            width: 90%;
+            position: relative;
+            border: 2px solid var(--accent-color);
+            animation: gentle-bob 8s ease-in-out infinite;
+        }
+
+        /* Corner decorations - Góc triện truyền thống */
+        .display-container::before, .display-container::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--primary-color);
+        }
+        .display-container::before {
+            top: 8px; left: 8px;
+            border-right: none; border-bottom: none;
+        }
+        .display-container::after {
+            bottom: 8px; right: 8px;
+            border-left: none; border-top: none;
+        }
+
+        .logo-text {
+            font-size: 3.2rem; /* Nhỏ hơn chút để vừa 1 hàng */
+            font-weight: 900; /* Đậm hơn */
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: var(--font-main); /* Dùng sans-serif */
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 35px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .qr-box {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 2px solid var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .qr-placeholder {
+            width: 100%;
+            height: 100%;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .instruction {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Floating elements at bottom corners */
+        .float-element {
+            position: absolute;
+            bottom: 40px;
+            width: 120px;
+            height: 120px;
+            opacity: 0.15;
+            pointer-events: none;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .float-left {
+            left: 40px;
+            /* Họa tiết hoa sen cách điệu */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10 C50 10 30 40 10 50 C30 60 50 90 50 90 C50 90 70 60 90 50 C70 40 50 10 50 10 Z' fill='none' stroke='%23DAA520' stroke-width='4'/%3E%3Cpath d='M50 30 C50 30 40 45 25 50 C40 55 50 70 50 70 C50 70 60 55 75 50 C60 45 50 30 50 30 Z' fill='none' stroke='%23DAA520' stroke-width='2'/%3E%3C/svg%3E");
+            animation-delay: 0s;
+        }
+        
+        .float-right {
+            right: 40px;
+            /* Họa tiết mây cung đình */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 60 Q 20 40 40 40 Q 50 20 70 30 Q 90 40 80 60 Q 90 80 70 80 Q 50 90 30 80 Q 10 80 20 60 Z' fill='none' stroke='%23DAA520' stroke-width='3'/%3E%3Cpath d='M40 50 Q 50 35 65 45 Q 75 55 65 65 Q 50 75 35 65 Q 25 55 40 50 Z' fill='none' stroke='%23DAA520' stroke-width='1.5'/%3E%3C/svg%3E");
+            animation-delay: -3s;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); }
+            100% { opacity: 0.7; transform: scale(0.98); }
+        }
+
+        @keyframes gentle-bob {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="deco-top"></div>
+    
+    <div class="float-element float-left"></div>
+    <div class="float-element float-right"></div>
+
+    <div class="display-container">
+        <div class="logo-text" id="qr-title">DẤU DI SẢN</div>
+        <div class="subtitle" id="qr-subtitle">Đang tải dữ liệu...</div>
+        
+        <div class="qr-box">
+            <img id="qr-image" src="" alt="QR Code" style="display: none; width: 100%; height: 100%; object-fit: contain;">
+            <div class="qr-placeholder" id="qr-placeholder">MÃ QR TẠI ĐÂY</div>
+        </div>
+
+        <div class="instruction" id="qr-instruction">
+            Quét mã để bắt đầu
+        </div>
+    </div>
+
+    <div class="deco-bottom"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('flow.yaml');
+                const yamlText = await response.text();
+                const config = jsyaml.load(yamlText);
+
+                if (config.qr_screen) {
+                    document.getElementById('qr-title').textContent = config.qr_screen.title;
+                    document.getElementById('qr-subtitle').textContent = config.qr_screen.subtitle;
+                    document.getElementById('qr-instruction').textContent = config.qr_screen.instruction;
+                    
+                    if (config.qr_screen.qr_image) {
+                        const img = document.getElementById('qr-image');
+                        img.src = config.qr_screen.qr_image;
+                        img.style.display = 'block';
+                        document.getElementById('qr-placeholder').style.display = 'none';
+                    }
+                }
+            } catch (error) {
+                console.error("Failed to load flow.yaml", error);
+                document.getElementById('qr-subtitle').textContent = "Lỗi tải dữ liệu";
+            }
+        });
+    </script>
+</body>
+</html>

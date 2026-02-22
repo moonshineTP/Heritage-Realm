@@ -1,0 +1,131 @@
+# ==========================================
+# DẤU DI SẢN - CẤU HÌNH NỘI DUNG (CONTENT CONFIG)
+# ==========================================
+# File này chứa toàn bộ nội dung của trải nghiệm.
+# Khách hàng/Đội nội dung chỉ cần chỉnh sửa file này,
+# hệ thống sẽ tự động cập nhật giao diện mà không cần sửa code.
+
+project:
+  name: "Dấu Di Sản: Miền Trung"
+  description: "Hành trình khám phá dải đất miền Trung."
+  theme:
+    primary_color: "#8b0000" # Đỏ đô (màu cung đình)
+    secondary_color: "#d4af37" # Vàng đồng
+    background_pattern: "assets/images/bg-pattern.png" # Họa tiết chìm miền Trung
+  global_audio:
+    correct_sfx: "assets/audio/correct.mp3"
+    incorrect_sfx: "assets/audio/incorrect.mp3"
+    chime_sfx: "assets/audio/chime.mp3"
+
+# 1. Entry (Điểm vào: Quét QR & Khởi tạo)
+qr_screen:
+  title: "DẤU DI SẢN"
+  subtitle: "Hành trình khám phá dải đất miền Trung"
+  instruction: "Quét mã để bắt đầu"
+  qr_image: "assets/images/qr-code.png" # Đường dẫn đến ảnh QR thật
+  error_message: "Có chút nhầm lẫn ở không gian này. Vui lòng quét lại mã QR nhé!"
+  retry_button: "Thử lại"
+
+loading_screen:
+  logo: "assets/icons/logo.svg"
+  fallback_bg_color: "#8b0000"
+  timeout_ms: 3000
+
+# 2. Intro Screen (Màn hình chính)
+intro_screen:
+  background_image: "assets/images/intro-bg.jpg"
+  title: "Dấu Di Sản"
+  subtitle: "Miền Trung"
+  intro_text: "Chào mừng bạn đến với hành trình khám phá. Hãy bật âm thanh và làm theo hướng dẫn để bắt đầu."
+  start_button: "Bắt đầu hành trình"
+  transition_effect: "curtain" # Màn hình tách đôi mở ra hai bên
+
+# 3. Story & Exploration (Khám phá các khu trưng bày)
+zones:
+  - id: "zone-01"
+    order: 1
+    name: "Khu Đại Nội Huế"
+    thumbnail: "assets/images/zone-01-thumb.jpg"
+    slides:
+      - image: "assets/slides/slide-01.jpg"
+        text: "Đại Nội Huế là trung tâm chính trị, hành chính của triều đình nhà Nguyễn..."
+        audio: "assets/audio/zone-01-story.mp3"
+
+  - id: "zone-02"
+    order: 2
+    name: "Khu Phố Cổ Hội An"
+    thumbnail: "assets/images/zone-02-thumb.jpg"
+    slides:
+      - image: "assets/slides/slide-02.jpg"
+        text: "Hội An từng là một thương cảng quốc tế sầm uất, nơi giao thoa của nhiều nền văn hóa..."
+        audio: "assets/audio/zone-02-story.mp3"
+
+  - id: "zone-03"
+    order: 3
+    name: "Khu Đền Tháp Mỹ Sơn"
+    thumbnail: "assets/images/zone-03-thumb.jpg"
+    slides:
+      - image: "assets/slides/slide-03.jpg"
+        text: "Thánh địa Mỹ Sơn là tổ hợp các đền tháp của vương quốc Chăm Pa cổ..."
+        audio: "assets/audio/zone-03-story.mp3"
+
+# 4. Mini Game / Quiz (Thử thách)
+quiz_game:
+  challenge_screen:
+    title: "Thử Thách Di Sản"
+    description: "Bạn đã sẵn sàng kiểm tra kiến thức của mình và thu thập các mảnh ghép huy hiệu chưa?"
+    start_button: "Tham gia thử thách"
+  questions:
+    - id: "q1"
+      related_zone: "zone-01"
+      question: "Triều đại nào đã xây dựng Đại Nội Huế?"
+      options:
+        - "Nhà Lê"
+        - "Nhà Nguyễn"
+        - "Nhà Trần"
+      correct_index: 1 # Index bắt đầu từ 0
+      success_message: "Bạn đã nhận được một mảnh ghép."
+      error_message: "Đáp án đúng là Nhà Nguyễn."
+      explanation: "Đại Nội Huế được vua Gia Long bắt đầu xây dựng từ năm 1804 và hoàn thiện dưới triều vua Minh Mạng, là trung tâm quyền lực của nhà Nguyễn."
+      badge: "assets/icons/badge-01.svg"
+
+    - id: "q2"
+      related_zone: "zone-02"
+      question: "Biểu tượng nổi tiếng nhất của Phố cổ Hội An là gì?"
+      options:
+        - "Chùa Cầu"
+        - "Cầu Rồng"
+        - "Tháp Chàm"
+      correct_index: 0
+      success_message: "Bạn đã nhận được một mảnh ghép."
+      error_message: "Đáp án đúng là Chùa Cầu."
+      explanation: "Chùa Cầu (Lai Viễn Kiều) được các thương nhân Nhật Bản góp tiền xây dựng vào khoảng thế kỷ 17, là biểu tượng giao thoa văn hóa độc đáo."
+      badge: "assets/icons/badge-02.svg"
+
+    - id: "q3"
+      related_zone: "zone-03"
+      question: "Thánh địa Mỹ Sơn thuộc tỉnh nào?"
+      options:
+        - "Quảng Nam"
+        - "Đà Nẵng"
+        - "Thừa Thiên Huế"
+      correct_index: 0
+      success_message: "Bạn đã nhận được một mảnh ghép."
+      error_message: "Đáp án đúng là Quảng Nam."
+      explanation: "Thánh địa Mỹ Sơn nằm trong một thung lũng kín thuộc xã Duy Phú, huyện Duy Xuyên, tỉnh Quảng Nam, từng là nơi tổ chức cúng tế của vương triều Chăm Pa."
+      badge: "assets/icons/badge-03.svg"
+
+# 5. Terminal / End Screen (Nhận huy hiệu & Kết thúc)
+endscreen:
+  title: "Chúc mừng bạn đã hoàn thành!"
+  message: "Bạn đã thu thập đủ các huy hiệu di sản. Hãy chia sẻ thành tích này với bạn bè nhé."
+  share_text: "Tôi vừa hoàn thành hành trình khám phá Dấu Di Sản miền Trung!"
+  share_button: "Chia sẻ lên Facebook"
+  replay_button: "Xem lại hành trình"
+  share_success_toast: "Đã chia sẻ thành công!"
+  share_fallback_button: "Sao chép liên kết"
+
+# 6. Global Exceptions & Edge Cases
+exceptions:
+  offline_toast: "Đường truyền đang gián đoạn, đang thử kết nối lại..."
+

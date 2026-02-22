@@ -1,0 +1,22 @@
+Mình đang làm web cho dự án “Dấu Di Sản” (web-based, mobile-first, SSG), nhờ bạn hỗ trợ design flow + UX giúp mình nha.
+
+- Flow chính như này:
+Scan QR tại bảo tàng (simple static page)
+Intro “Dấu Di Sản” (main entry)
+Chỉ đường + thứ tự tham quan các khu (curtain transition)
+Story + audio + video tại từng điểm (left swift)
+Mini game / câu hỏi ngắn (simple game interface)
+Nhận huy hiệu số (hmmm, idk but a endscreen or whatever)
+Share FB (use facebook api)
+
+- Expect của tụi mình:
+Load nhanh (performance-oriented)
+Không cần tải app (netlify thôi là oke)
+Không cần login (same)
+UX đơn giản, dễ dùng khi đứng scan QR tại chỗ (kiểu QR to fit được cái screen của iphone/ipad)
+Ít text, trực quan (đơn giản thôi)
+
+- Output mình cần:
+User flow
+Wireframe mobile
+UI concept
