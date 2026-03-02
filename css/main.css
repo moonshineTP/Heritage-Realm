@@ -133,17 +133,17 @@ body, html {
     background-image: radial-gradient(circle, rgba(212, 175, 55, 0.4) 2px, transparent 2.5px);
     background-size: 16px 16px;
     -webkit-mask-image: 
-        radial-gradient(circle at 0% 0%, transparent 120px, black 121px, black 180px, transparent 181px),
-        radial-gradient(circle at 100% 100%, transparent 120px, black 121px, black 180px, transparent 181px),
-        radial-gradient(circle at 50% 50%, transparent 180px, black 181px, black 240px, transparent 241px),
-        radial-gradient(circle at 100% 0%, transparent 80px, black 81px, black 140px, transparent 141px),
-        radial-gradient(circle at 0% 100%, transparent 80px, black 81px, black 140px, transparent 141px);
+        radial-gradient(circle at 0% 0%, transparent 70px, black 81px, black 130px, transparent 131px),
+        radial-gradient(circle at 100% 100%, transparent 70px, black 81px, black 130px, transparent 131px),
+        radial-gradient(circle at 50% 50%, transparent 180px, black 181px, black 240px, transparent 161px),
+        radial-gradient(circle at 100% 0%, transparent 70px, black 81px, black 120px, transparent 121px),
+        radial-gradient(circle at 0% 100%, transparent 70px, black 81px, black 120px, transparent 121px);
     mask-image: 
-        radial-gradient(circle at 0% 0%, transparent 120px, black 121px, black 180px, transparent 181px),
-        radial-gradient(circle at 100% 100%, transparent 120px, black 121px, black 180px, transparent 181px),
-        radial-gradient(circle at 50% 50%, transparent 180px, black 181px, black 240px, transparent 241px),
-        radial-gradient(circle at 100% 0%, transparent 80px, black 81px, black 140px, transparent 141px),
-        radial-gradient(circle at 0% 100%, transparent 80px, black 81px, black 140px, transparent 141px);
+        radial-gradient(circle at 0% 0%, transparent 80px, black 81px, black 130px, transparent 131px),
+        radial-gradient(circle at 100% 100%, transparent 80px, black 81px, black 130px, transparent 131px),
+        radial-gradient(circle at 50% 50%, transparent 180px, black 181px, black 240px, transparent 161px),
+        radial-gradient(circle at 100% 0%, transparent 70px, black 81px, black 120px, transparent 121px),
+        radial-gradient(circle at 0% 100%, transparent 70px, black 81px, black 120px, transparent 121px);
     z-index: 1;
     pointer-events: none;
 }
