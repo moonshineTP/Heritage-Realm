@@ -3,6 +3,7 @@
 
 # Main folder to ignore
 product
+scripts
 
 # Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
 _site/
