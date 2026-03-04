@@ -3,8 +3,8 @@
     /* Palette: Giấy dó — warm museum parchment
        Không gian có thể tối (bảo tàng) nhưng màu sắc phải địu mắt, ấm, unisex.
        Tóm gọn: nền giấy dovàng cam đồng — đỏ gạch — hồng đất — nâu sậm */
-    --bg-color:        #eedfd0; /* Giấy dó đậm hơn chút xíu + ánh hồng phấn */   /* Giấy dó / warm parchment */
-    --surface-color:   #e2cfb8;   /* Cát nâu ấm — dùng cho card/panel */
+    --bg-color:        #f0e0c5; /* Giấy dó đậm hơn chút xíu + ánh hồng phấn */   /* Giấy dó / warm parchment */
+    --surface-color:   #ebd2b5;   /* Cát nâu ấm — dùng cho card/panel */
     --loading-bg:      #6b3232;   /* Đỏ gạch — loading screen ấn tượng */
     --primary-color:   #b5763a;   /* Đồng am / warm amber — accent chính */
     --gold-color:      #c9a227;   /* Vàng đồng — highlight / icon */
@@ -83,9 +83,12 @@ body, html {
     align-items: center;
 }
 .pulse-logo img {
-    width: 100px;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 16px;
     animation: pulse 2s infinite;
-    filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg); /* trắng vang */
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.45));
 }
 .progress-bar {
     width: 60%; height: 3px;

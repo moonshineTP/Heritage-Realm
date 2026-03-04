@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Dấu Di Sản</title>
-    
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+    <link rel="alternate icon" type="image/png" href="assets/icons/logo.png">
+    <link rel="apple-touch-icon" href="assets/icons/logo.png">
+
+    <!-- Open Graph (Facebook, Zalo, Messenger…) -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Dấu Di Sản">
+    <meta property="og:description" content="Hành trình khám phá dải đất miền Trung.">
+    <meta property="og:image"       content="assets/icons/logo.png">
+    <meta property="og:image:alt"   content="Logo Dấu Di Sản">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary">
+    <meta name="twitter:title"       content="Dấu Di Sản">
+    <meta name="twitter:description" content="Hành trình khám phá dải đất miền Trung.">
+    <meta name="twitter:image"       content="assets/icons/logo.png">
+
+    <!-- General SEO -->
+    <meta name="description" content="Hành trình khám phá dải đất miền Trung.">
+    <meta name="theme-color"  content="#6b3232">
+
     <!-- Styles -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
-
-
 
     <!-- External Libraries -->
     <!-- js-yaml for parsing flow.yaml without a build step -->
@@ -19,6 +39,47 @@
     <script data-goatcounter="https://bulubulu-balabala.goatcounter.com/count"async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SVG Sprite Sheet — tất cả icon/mascot định nghĩa tại đây,
+         dùng <use href="#id"> ở bất kỳ đâu trong trang.
+         Inline (không phải external file) để CSS class vẫn hoạt động.
+    ═══════════════════════════════════════════════════════════ -->
+    <svg id="sprite-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="display:none">
+        <!-- Con dấu cổ phong cách Chăm / Nguyễn — dùng cho prologue & mascot bay -->
+        <symbol id="icon-mascot" viewBox="0 0 60 60">
+            <circle cx="30" cy="30" r="28" fill="#7a2e2e" stroke="#c9a227" stroke-width="2"/>
+            <circle cx="30" cy="30" r="22" fill="none" stroke="#c9a227" stroke-width="1" stroke-dasharray="3 2.5"/>
+            <path d="M30 12 L42 30 L30 48 L18 30 Z" fill="none" stroke="#f5e9c8" stroke-width="1.5"/>
+            <line x1="30" y1="18" x2="30" y2="42" stroke="#f5e9c8" stroke-width="1"/>
+            <line x1="18" y1="30" x2="42" y2="30" stroke="#f5e9c8" stroke-width="1"/>
+            <circle cx="30" cy="30" r="5" fill="#c9a227"/>
+            <circle cx="30" cy="30" r="2.5" fill="#7a2e2e"/>
+            <circle cx="30" cy="16" r="2" fill="#c9a227"/>
+            <circle cx="30" cy="44" r="2" fill="#c9a227"/>
+            <circle cx="16" cy="30" r="2" fill="#c9a227"/>
+            <circle cx="44" cy="30" r="2" fill="#c9a227"/>
+        </symbol>
+        <!-- Loa — âm thanh bật -->
+        <symbol id="icon-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+        </symbol>
+        <!-- Loa — âm thanh tắt -->
+        <symbol id="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+        </symbol>
+        <!-- Chia sẻ -->
+        <symbol id="icon-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+            <polyline points="16 6 12 2 8 6"/>
+            <line x1="12" y1="2" x2="12" y2="15"/>
+        </symbol>
+    </svg>
+
     <div id="app">
         <!-- Background Pattern (Theme 20%) -->
         <div id="bg-pattern"></div>
@@ -32,7 +93,8 @@
         <!-- 1. Loading Screen -->
         <div id="screen-loading" class="screen active">
             <div class="pulse-logo">
-                <img id="ui-loading-logo" src="assets/icons/logo.svg" alt="Logo">
+                <!-- Use JPG with white background for loading screen visibility -->
+                <img id="ui-loading-logo" src="assets/icons/logo.jpg" alt="Logo Dấu Di Sản">
             </div>
             <p id="ui-loading-text" class="loading-text">Đang tải dữ liệu...</p>
             <div class="progress-bar"><div class="progress-fill"></div></div>
@@ -55,6 +117,23 @@
             <div class="curtain curtain-right" id="curtain-right"></div>
         </div>
 
+        <!-- 2.5 Prologue Screen (Dẫn truyện) -->
+        <div id="screen-prologue" class="screen">
+            <!-- Mascot: con dấu cổ phong cách Chăm/Nguyễn -->
+            <div class="prologue-mascot" id="prologue-mascot">
+                <svg width="60" height="60" aria-hidden="true"><use href="#icon-mascot"></use></svg>
+            </div>
+
+            <!-- Text lines (filled by JS) -->
+            <div class="prologue-lines" id="prologue-lines"></div>
+
+            <!-- Action bar: CTA + skip — flexbox căn giữa, không dùng absolute -->
+            <div class="prologue-actions">
+                <button id="btn-prologue-go" class="btn prologue-cta">Đi thôi!</button>
+                <button id="btn-prologue-skip" class="btn-skip">Bỏ qua</button>
+            </div>
+        </div>
+
         <!-- 3. Story Screen (Zone 1 Structure) -->
         <div id="screen-story" class="screen">
             <!-- Top: Logo, Zone Name & Audio toggle -->
@@ -62,16 +141,8 @@
                 <img id="ui-story-logo" src="assets/icons/logo.svg" alt="Logo" class="small-logo">
                 <span class="zone-name" id="ui-zone-name"></span>
                 <button id="btn-audio" class="btn-audio-toggle" title="Bật/Tắt âm thanh" aria-label="Toggle audio">
-                    <svg class="icon-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                        <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                        <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-                    </svg>
-                    <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                        <line x1="23" y1="9" x2="17" y2="15"/>
-                        <line x1="17" y1="9" x2="23" y2="15"/>
-                    </svg>
+                    <svg class="icon-sound" viewBox="0 0 24 24"><use href="#icon-sound"></use></svg>
+                    <svg class="icon-mute"  viewBox="0 0 24 24" style="display:none"><use href="#icon-mute"></use></svg>
                 </button>
             </header>
 
@@ -159,13 +230,18 @@
                 <!-- Actions -->
                 <div class="end-actions">
                     <button id="btn-share" class="btn btn-share breathe-effect">
-                        <svg class="share-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                        <svg class="share-icon" width="18" height="18" viewBox="0 0 24 24"><use href="#icon-share"></use></svg>
                         <span id="btn-share-text"></span>
                     </button>
                     <button id="btn-replay" class="btn-icon btn-replay"></button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Floating mascot — thoát khỏi prologue và bay về góc trái -->
+    <div id="mascot-fly" aria-hidden="true">
+        <svg width="52" height="52" viewBox="0 0 60 60"><use href="#icon-mascot"></use></svg>
     </div>
 
     <!-- Popup Explanation — OUTSIDE #app so no parent transform clips it -->

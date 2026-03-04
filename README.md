@@ -2,9 +2,7 @@
 
 **Trải nghiệm di sản tương tác — scan QR, không cần cài app.**
 
-Dấu Di Sản là một web app mobile-first chạy ngay trong trình duyệt, được kích hoạt bằng QR code tại bảo tàng. Người tham quan scan mã, đi qua hành trình kể chuyện tại từng khu trưng bày, trả lời câu hỏi ngắn, và nhận huy hiệu số khi hoàn thành — tất cả không cần cài app, không cần đăng nhập.
-
-> Một lần scan. Chỉ cần điện thoại.
+Dấu Di Sản là một web app mobile-first chạy ngay trong trình duyệt, được kích hoạt bằng QR code tại bảo tàng. Người tham quan scan mã, đi qua hành trình kể chuyện tại từng khu trưng bày, trả lời câu hỏi ngắn, và nhận huy hiệu số khi hoàn thành.
 
 ---
 
@@ -38,15 +36,13 @@ Dấu Di Sản là một web app mobile-first chạy ngay trong trình duyệt, 
 | Audio | HTML5 Audio API |
 | Chia sẻ | Web Share API + Clipboard API fallback |
 
-> **Không có build step.** Không có Node.js, không có bundler. Mở trực tiếp bằng trình duyệt hoặc serve tĩnh là chạy được.
-
 ---
 
 ## Triết lý thiết kế
 
 Người dùng đang đứng tại bảo tàng, một tay cầm điện thoại. Mọi quyết định thiết kế đều xuất phát từ điều đó: ít chữ, ít bước, load nhanh, không cần hướng dẫn.
 
-Không gian thị giác lấy cảm hứng từ miền Trung Việt Nam thời trung cận đại — gam màu giấy dó, đồng am, gạch đỏ cung đình — nhưng được trình bày theo phong cách trẻ trung, upbeat, unisex để thu hút Gen Z và Millennials.
+Không gian thị giác lấy cảm hứng từ miền Trung Việt Nam thời trung cận đại - gam màu giấy dó, đồng am, gạch đỏ cung đình - nhưng được trình bày theo phong cách trẻ trung, upbeat, unisex để thu hút Gen Z và Millennials.
 
 ---
 
