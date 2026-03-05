@@ -636,7 +636,7 @@
 /* Individual line */
 .prologue-line {
     font-family: var(--font-serif);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     line-height: 1.65;
     color: #f5e9c8;
     opacity: 0;
