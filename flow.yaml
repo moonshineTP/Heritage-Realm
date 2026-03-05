@@ -69,7 +69,7 @@ zones:
     name: "Khu Đại Nội Huế"
     thumbnail: "assets/images/zone-01-thumb.jpg"
     slides:
-      - image: "assets/slides/slide-01.jpg"
+      - image: "assets/images/zone-01-thumb.jpg"
         text: "Đại Nội Huế là trung tâm chính trị, hành chính của triều đình nhà Nguyễn..."
         audio: "assets/audio/zone-01-story.mp3"
 
@@ -78,7 +78,7 @@ zones:
     name: "Khu Phố Cổ Hội An"
     thumbnail: "assets/images/zone-02-thumb.jpg"
     slides:
-      - image: "assets/slides/slide-02.jpg"
+      - image: "assets/images/zone-02-thumb.jpg"
         text: "Hội An từng là một thương cảng quốc tế sầm uất, nơi giao thoa của nhiều nền văn hóa..."
         audio: "assets/audio/zone-02-story.mp3"
 
@@ -87,7 +87,7 @@ zones:
     name: "Khu Đền Tháp Mỹ Sơn"
     thumbnail: "assets/images/zone-03-thumb.jpg"
     slides:
-      - image: "assets/slides/slide-03.jpg"
+      - image: "assets/images/zone-03-thumb.jpg"
         text: "Thánh địa Mỹ Sơn là tổ hợp các đền tháp của vương quốc Chăm Pa cổ..."
         audio: "assets/audio/zone-03-story.mp3"
 
@@ -146,6 +146,22 @@ endscreen:
   replay_button: "Xem lại hành trình"
   share_success_toast: "Đã chia sẻ thành công!"
   share_fallback_button: "Sao chép liên kết"
+  polaroids:
+    - image: "assets/images/polaroid-01.png"
+      label: "Hội An"
+      rotation: "-8deg"
+      delay: "1.2s"
+      position: "left"
+    - image: "assets/images/polaroid-02.png"
+      label: "Đại Nội"
+      rotation: "6deg"
+      delay: "1.5s"
+      position: "right"
+    - image: "assets/images/polaroid-03.png"
+      label: "Mỹ Sơn"
+      rotation: "5deg"
+      delay: "1.8s"
+      position: "left-low"
 
 # 7. Global Exceptions & Edge Cases
 exceptions:

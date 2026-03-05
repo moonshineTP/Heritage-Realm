@@ -6,22 +6,22 @@
     <title>Dấu Di Sản</title>
 
     <!-- Favicon & App Icons -->
-    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
-    <link rel="alternate icon" type="image/png" href="assets/icons/logo.png">
-    <link rel="apple-touch-icon" href="assets/icons/logo.png">
+    <link rel="icon" type="image/jpeg" href="assets/icons/logo.jpg">
+    <link rel="alternate icon" type="image/jpeg" href="assets/icons/logo.jpg">
+    <link rel="apple-touch-icon" href="assets/icons/logo.jpg">
 
     <!-- Open Graph (Facebook, Zalo, Messenger…) -->
     <meta property="og:type"        content="website">
     <meta property="og:title"       content="Dấu Di Sản">
     <meta property="og:description" content="Hành trình khám phá dải đất miền Trung.">
-    <meta property="og:image"       content="assets/icons/logo.png">
+    <meta property="og:image"       content="assets/icons/logo.jpg">
     <meta property="og:image:alt"   content="Logo Dấu Di Sản">
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary">
     <meta name="twitter:title"       content="Dấu Di Sản">
     <meta name="twitter:description" content="Hành trình khám phá dải đất miền Trung.">
-    <meta name="twitter:image"       content="assets/icons/logo.png">
+    <meta name="twitter:image"       content="assets/icons/logo.jpg">
 
     <!-- General SEO -->
     <meta name="description" content="Hành trình khám phá dải đất miền Trung.">
@@ -194,21 +194,8 @@
 
         <!-- 5. End Screen -->
         <div id="screen-endscreen" class="screen end-screen">
-            <!-- Polaroid photos pinned on sides -->
-            <div class="polaroid-cluster">
-                <div class="polaroid p-left" style="--rot:-8deg; --delay:1.2s">
-                    <img src="assets/images/polaroid-01.png" alt="Hội An">
-                    <span class="polaroid-label">Hội An</span>
-                </div>
-                <div class="polaroid p-right" style="--rot:6deg; --delay:1.5s">
-                    <img src="assets/images/polaroid-02.png" alt="Đại Nội">
-                    <span class="polaroid-label">Đại Nội</span>
-                </div>
-                <div class="polaroid p-left p-low" style="--rot:5deg; --delay:1.8s">
-                    <img src="assets/images/polaroid-03.png" alt="Mỹ Sơn">
-                    <span class="polaroid-label">Mỹ Sơn</span>
-                </div>
-            </div>
+            <!-- Polaroid photos pinned on sides (dynamically filled) -->
+            <div class="polaroid-cluster" id="ui-polaroid-cluster"></div>
 
             <div class="end-container">
                 <!-- Badge Assembly Area -->

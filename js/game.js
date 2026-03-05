@@ -239,6 +239,9 @@ const GameEngine = {
         // Replay — reload page
         btnReplay.onclick = () => location.reload();
 
+        // Render Polaroids from config
+        this.renderPolaroids();
+
         // Prepare badge images (use first badge SVG as the unified badge)
         const badgeSrc = this.config.quiz_game.questions[0]?.badge || 'assets/icons/badge-01.svg';
         const makeImg = () => { const i = new Image(); i.src = badgeSrc; return i; };
@@ -249,6 +252,25 @@ const GameEngine = {
         document.getElementById('badge-left').appendChild(makeImg());
         document.getElementById('badge-right').appendChild(makeImg());
         document.getElementById('badge-full').appendChild(makeImg());
+    },
+
+    renderPolaroids() {
+        const cluster = document.getElementById('ui-polaroid-cluster');
+        if (!cluster || !this.config.endscreen?.polaroids) return;
+
+        cluster.innerHTML = '';
+        this.config.endscreen.polaroids.forEach(p => {
+            const div = document.createElement('div');
+            div.className = `polaroid p-${p.position}`;
+            div.style.setProperty('--rot', p.rotation);
+            div.style.setProperty('--delay', p.delay);
+
+            div.innerHTML = `
+                <img src="${p.image}" alt="${p.label}">
+                <span class="polaroid-label">${p.label}</span>
+            `;
+            cluster.appendChild(div);
+        });
     },
 
     // ── Badge assembly sequence ───────────────────────────────────────────────
