@@ -5,6 +5,7 @@
 # Khách hàng/Đội nội dung chỉ cần chỉnh sửa file này,
 # hệ thống sẽ tự động cập nhật giao diện mà không cần sửa code.
 
+
 project:
   name: "Dấu Di Sản"
   description: "Hành trình khám phá dải đất miền Trung."
@@ -15,6 +16,7 @@ project:
   global_audio:
     correct_sfx: "assets/audio/correct.mp3"
     incorrect_sfx: "assets/audio/incorrect.mp3"
+
 
 # 1. Entry (Điểm vào: Quét QR & Khởi tạo)
 qr_screen:
@@ -30,6 +32,7 @@ loading_screen:
   fallback_bg_color: "#8b0000"
   timeout_ms: 3000
 
+
 # 2. Intro Screen (Màn hình chính)
 intro_screen:
   background_image: "assets/images/intro-bg.jpg"
@@ -38,10 +41,12 @@ intro_screen:
   start_button: "Bắt đầu hành trình"
   transition_effect: "curtain" # Màn hình tách đôi mở ra hai bên
 
+
 # 3. Prologue Screen (Dẫn truyện)
 prologue_screen:
-  transition_in: "fade"         # Xuất hiện sau Curtain Transition của Intro
-  transition_out: "fade"        # Fade Out 0.5s trước khi vào Slide 1
+  transition_in: "fade"              # Xuất hiện sau Curtain Transition của Intro
+  transition_out: "content-fade"     # Chỉ nội dung fade out, nền giữ nguyên
+  shared_background: true             # Dùng chung nền với map_screen
   skip_button: "Bỏ qua"
   cta_button: "Đi thôi!"
   ambient_audio: "assets/audio/ambient.mp3"  # Nhạc nền nhẹ nhàng trong prologue
@@ -61,6 +66,36 @@ prologue_screen:
     - id: "p5"
       text: "Đi thôi! Dấu chờ bạn đó."
       effect: "fade-up"         # Kèm mascot wiggle khi dòng này xuất hiện
+
+
+# 3.5. Bản Đồ Hành Trình (Journey Map Screen)
+map_screen:
+  transition_in: "fade"            # Nội dung (title, ảnh, nút) fade-in trên nền chung
+  transition_out: "fade"           # Fade out cả nền chung + nội dung khi rời map
+  shared_background: true           # Dùng chung nền với prologue_screen
+  background_image: "assets/images/map.png"
+  title: "Hành trình của bạn"
+  cta_button: "Bắt đầu khám phá"
+  checkpoints:
+    - id: "cp-start"
+      name: "Cổng Khởi Hành"
+      status: "current"          # current | locked | completed
+    - id: "cp-zone-01"
+      name: "Đại Nội Huế"
+      status: "locked"
+    - id: "cp-zone-02"
+      name: "Phố Cổ Hội An"
+      status: "locked"
+    - id: "cp-zone-03"
+      name: "Thánh Địa Mỹ Sơn"
+      status: "locked"
+    - id: "cp-challenge"
+      name: "Đấu Trường Di Sản"
+      status: "locked"
+    - id: "cp-end"
+      name: "Điện Phong Ấn"
+      status: "locked"
+
 
 # 4. Story & Exploration (Khám phá các khu trưng bày)
 zones:
@@ -90,6 +125,7 @@ zones:
       - image: "assets/images/zone-03-thumb.jpg"
         text: "Thánh địa Mỹ Sơn là tổ hợp các đền tháp của vương quốc Chăm Pa cổ..."
         audio: "assets/audio/zone-03-story.mp3"
+
 
 # 5. Mini Game / Quiz (Thử thách)
 quiz_game:
@@ -137,6 +173,7 @@ quiz_game:
       explanation: "Thánh địa Mỹ Sơn nằm trong một thung lũng kín thuộc xã Duy Phú, huyện Duy Xuyên, tỉnh Quảng Nam, từng là nơi tổ chức cúng tế của vương triều Chăm Pa."
       badge: "assets/icons/badge-03.svg"
 
+
 # 6. Terminal / End Screen (Nhận huy hiệu & Kết thúc)
 endscreen:
   title: "Chúc mừng bạn đã hoàn thành!"
@@ -162,6 +199,7 @@ endscreen:
       rotation: "5deg"
       delay: "1.8s"
       position: "left-low"
+
 
 # 7. Global Exceptions & Edge Cases
 exceptions:

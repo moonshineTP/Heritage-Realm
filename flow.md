@@ -11,6 +11,8 @@ graph TD
     A[Quét QR tại bảo tàng] --> LOAD(Loading Screen)
     LOAD --> INTRO[Intro Screen]
     INTRO -- Nhấn 'Bắt đầu' - Curtain Transition --> PRO[Prologue: Dẫn truyện]
+    PRO -- Hết truyện/Bỏ qua - Fade Out --> MAP[🗺️ Bản Đồ Hành Trình]
+    MAP -- Nhấn 'Bắt đầu khám phá' - Fade Out --> Z1
 
     subgraph ZONES[" 🗺️ Zones - Khám phá khu trưng bày "]
         Z1[Zone 1: Khu Đại Nội Huế]
@@ -19,8 +21,6 @@ graph TD
         Z1 -- Swipe Left - Parallax --> Z2
         Z2 -- Swipe Left - Parallax --> Z3
     end
-
-    PRO -- Hết truyện/Bỏ qua - Fade Out --> Z1
     Z3 -- Nhấn Take Quiz - Slide Up --> QUIZ
 
     subgraph QUIZ_FLOW[" 🎯 Quiz - Mini Game "]
@@ -84,10 +84,28 @@ graph TD
   - Mỗi đoạn text fade-in từ dưới lên sau khi đoạn trước hoàn tất (stagger ~0.8s).
   - Hiệu ứng **typewriter** chỉ áp dụng cho dòng đầu tiên để gây ấn tượng, các dòng sau dùng fade-in thuần để không gây mệt mỏi.
   - Nhân vật "Dấu" rung lắc nhẹ (wiggle) khi câu cuối "Đi thôi!" xuất hiện.
-- **Chuyển cảnh (Transition):** Nhấn "Đi thôi!" hoặc "Bỏ qua" → toàn bộ màn hình prologue **Fade Out** mượt mà (0.5s) → Zone 1 (Khu Đại Nội Huế) hiện ra.
+- **Chuyển cảnh (Transition):** Nhấn "Đi thôi!" hoặc "Bỏ qua" → **chỉ nội dung** (text dẫn truyện, mascot, nút bấm) **Fade Out** mượt mà (0.5s); **background giữ nguyên liền mạch** — không chớp, không đổi nền. Nội dung Bản Đồ Hành Trình fade-in trên cùng nền đó.
+  - **Lưu ý:** Prologue và Map dùng chung một lớp nền (shared background layer). Khi chuyển cảnh, nền không bị tắt/bật lại — chỉ lớp nội dung thay đổi.
 - **Kịch bản thay thế (Alternate Flow):**
-  - *Người dùng nhấn "Bỏ qua":* Skip ngay toàn bộ animation, chuyển thẳng đến Zone 1.
+  - *Người dùng nhấn "Bỏ qua":* Skip ngay toàn bộ animation, chuyển thẳng đến Bản Đồ Hành Trình. Nền vẫn giữ nguyên.
 - **Xử lý ngoại lệ (Exception):** Không có asset nặng trong màn hình này (text thuần) — không có rủi ro load failure.
+
+## 3.5. Bản Đồ Hành Trình (Journey Map Screen)
+- **Trigger:** Sau khi nội dung Prologue Fade Out hoàn tất (nền vẫn còn).
+- **Giao diện:**
+  - **Nền dùng chung với Prologue** — cùng một lớp gradient tối ấm liên tục, không tải lại hay chuyển đổi nền. Điều này tạo cảm giác không gian liền mạch giữa hai bước.
+  - Ảnh bản đồ hành trình minh hoạ (`assets/images/map.png`) hiển thị ở trung tâm, chiếm ~80% chiều rộng màn hình, bo góc nhẹ, có hiệu ứng **fade-in scale** (zoom nhẹ từ 0.9 → 1.0).
+  - Bản đồ thể hiện 6 checkpoint: Cổng Khởi Hành → Đại Nội Huế → Phố Cổ Hội An → Thánh Địa Mỹ Sơn → Đấu Trường Di Sản → Điện Phong Ấn.
+  - Checkpoint đầu tiên (Cổng Khởi Hành) được đánh dấu nổi bật với hiệu ứng **pulse glow** vàng đồng, biểu thị "Bạn đang ở đây".
+  - Tiêu đề ngắn phía trên bản đồ: "Hành trình của bạn" (serif, màu kem).
+  - Nút CTA **"Bắt đầu khám phá"** ở dưới cùng, có hiệu ứng `breathe` giống nút "Bắt đầu hành trình".
+- **Hiệu ứng (Effect):**
+  - Ảnh bản đồ fade-in + scale nhẹ (0.5s ease-out).
+  - Tiêu đề fade-in từ trên xuống (stagger 0.3s sau ảnh).
+  - Nút CTA fade-in sau cùng (stagger 0.6s).
+- **Chuyển cảnh (Transition):** Nhấn "Bắt đầu khám phá" → Fade Out (0.5s) → Zone 1 (Khu Đại Nội Huế).
+- **Xử lý ngoại lệ (Exception):**
+  - *Lỗi tải ảnh bản đồ:* Fallback hiển thị danh sách text các checkpoint trên nền gradient, không block luồng.
 
 ## 4. Story & Exploration (Khám phá các khu trưng bày)
 - **Giao diện:** 

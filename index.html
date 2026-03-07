@@ -117,6 +117,9 @@
             <div class="curtain curtain-right" id="curtain-right"></div>
         </div>
 
+        <!-- Shared background for Prologue & Map — stays visible across both screens -->
+        <div id="prologue-map-bg" class="prologue-map-bg"></div>
+
         <!-- 2.5 Prologue Screen (Dẫn truyện) -->
         <div id="screen-prologue" class="screen">
             <!-- Mascot: con dấu cổ phong cách Chăm/Nguyễn -->
@@ -131,6 +134,19 @@
             <div class="prologue-actions">
                 <button id="btn-prologue-go" class="btn prologue-cta">Đi thôi!</button>
                 <button id="btn-prologue-skip" class="btn-skip">Bỏ qua</button>
+            </div>
+        </div>
+
+        <!-- 2.75 Map Screen (Bản Đồ Hành Trình) -->
+        <div id="screen-map" class="screen">
+            <h2 id="ui-map-title" class="map-title">Hành trình của bạn</h2>
+            <div class="map-image-wrapper">
+                <div class="map-wood-frame" id="map-wood-frame">
+                    <img id="ui-map-image" src="assets/images/map.png" alt="Bản đồ hành trình" class="map-image">
+                </div>
+            </div>
+            <div class="map-actions">
+                <button id="btn-map-go" class="btn breathe-effect">Bắt đầu khám phá</button>
             </div>
         </div>
 
