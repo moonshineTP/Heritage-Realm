@@ -105,7 +105,7 @@ zones:
     thumbnail: "assets/images/zone-01-thumb.jpg"
     slides:
       - image: "assets/images/zone-01-thumb.jpg"
-        text: "Đại Nội Huế là trung tâm chính trị, hành chính của triều đình nhà Nguyễn..."
+        text: "Đại Nội Huế từng là trái tim của kinh thành nhà Nguyễn, nơi những nghi lễ triều chính, lễ tế và đời sống cung đình diễn ra sau lớp thành quách uy nghi. Đi qua Ngọ Môn, điện Thái Hòa hay Tử Cấm Thành, ta có thể cảm nhận rõ dấu vết của một thời vàng son còn in lại trong từng mái ngói, sân gạch và nhịp sống rất mực khuôn phép của cố đô."
         audio: "assets/audio/zone-01-story.mp3"
 
   - id: "zone-02"
@@ -114,7 +114,7 @@ zones:
     thumbnail: "assets/images/zone-02-thumb.jpg"
     slides:
       - image: "assets/images/zone-02-thumb.jpg"
-        text: "Hội An từng là một thương cảng quốc tế sầm uất, nơi giao thoa của nhiều nền văn hóa..."
+        text: "Phố cổ Hội An lưu giữ dáng hình của một thương cảng từng tấp nập thuyền buôn từ nhiều phương trời. Trong những ngôi nhà mái ngói rêu phong, bên Chùa Cầu, dọc các con phố đèn lồng và bến sông Hoài, người ta vẫn thấy một Hội An rất riêng: trầm lắng, hiền hòa nhưng thấm đẫm dấu ấn giao thoa Việt, Hoa, Nhật suốt nhiều thế kỷ."
         audio: "assets/audio/zone-02-story.mp3"
 
   - id: "zone-03"
@@ -123,7 +123,7 @@ zones:
     thumbnail: "assets/images/zone-03-thumb.jpg"
     slides:
       - image: "assets/images/zone-03-thumb.jpg"
-        text: "Thánh địa Mỹ Sơn là tổ hợp các đền tháp của vương quốc Chăm Pa cổ..."
+        text: "Thánh địa Mỹ Sơn là quần thể đền tháp linh thiêng của vương quốc Chăm Pa, ẩn mình trong một thung lũng xanh giữa núi đồi Quảng Nam. Những khối gạch xếp chồng không cần vữa, các phù điêu thần linh và dấu tích kiến trúc còn sót lại nơi đây không chỉ kể về tín ngưỡng Hindu giáo, mà còn nhắc ta về một nền văn minh từng rực rỡ suốt nhiều thế kỷ ở miền Trung."
         audio: "assets/audio/zone-03-story.mp3"
 
 
@@ -133,6 +133,7 @@ quiz_game:
     title: "Thử Thách Di Sản"
     description: "Bạn đã sẵn sàng kiểm tra kiến thức của mình và thu thập các mảnh ghép huy hiệu chưa?"
     start_button: "Tham gia thử thách"
+
   questions:
     - id: "q1"
       related_zone: "zone-01"
@@ -145,7 +146,6 @@ quiz_game:
       success_message: "Bạn đã nhận được một mảnh ghép."
       error_message: "Đáp án đúng là Nhà Nguyễn."
       explanation: "Đại Nội Huế được vua Gia Long bắt đầu xây dựng từ năm 1804 và hoàn thiện dưới triều vua Minh Mạng, là trung tâm quyền lực của nhà Nguyễn."
-      badge: "assets/icons/badge-01.svg"
 
     - id: "q2"
       related_zone: "zone-02"
@@ -158,7 +158,6 @@ quiz_game:
       success_message: "Bạn đã nhận được một mảnh ghép."
       error_message: "Đáp án đúng là Chùa Cầu."
       explanation: "Chùa Cầu (Lai Viễn Kiều) được các thương nhân Nhật Bản góp tiền xây dựng vào khoảng thế kỷ 17, là biểu tượng giao thoa văn hóa độc đáo."
-      badge: "assets/icons/badge-02.svg"
 
     - id: "q3"
       related_zone: "zone-03"
@@ -171,7 +170,6 @@ quiz_game:
       success_message: "Bạn đã nhận được một mảnh ghép."
       error_message: "Đáp án đúng là Quảng Nam."
       explanation: "Thánh địa Mỹ Sơn nằm trong một thung lũng kín thuộc xã Duy Phú, huyện Duy Xuyên, tỉnh Quảng Nam, từng là nơi tổ chức cúng tế của vương triều Chăm Pa."
-      badge: "assets/icons/badge-03.svg"
 
 
 # 6. Terminal / End Screen (Nhận huy hiệu & Kết thúc)
@@ -179,7 +177,7 @@ endscreen:
   title: "Chúc mừng bạn đã hoàn thành!"
   message: "Bạn đã thu thập đủ các huy hiệu di sản. Hãy chia sẻ thành tích này với bạn bè nhé."
   share_text: "Tôi vừa hoàn thành hành trình khám phá Dấu Di Sản!"
-  share_button: "Chia sẻ lên Facebook"
+  share_button: "Chia sẻ Facebook"
   replay_button: "Xem lại hành trình"
   share_success_toast: "Đã chia sẻ thành công!"
   share_fallback_button: "Sao chép liên kết"
@@ -190,7 +188,7 @@ endscreen:
       delay: "1.2s"
       position: "left"
     - image: "assets/images/polaroid-02.png"
-      label: "Đại Nội"
+      label: "Huế"
       rotation: "6deg"
       delay: "1.5s"
       position: "right"

@@ -243,7 +243,7 @@ const GameEngine = {
         this.renderPolaroids();
 
         // Prepare badge images (use first badge SVG as the unified badge)
-        const badgeSrc = this.config.quiz_game.questions[0]?.badge || 'assets/icons/badge-01.svg';
+        const badgeSrc = this.config.quiz_game.questions[0]?.badge || 'assets/icons/badge.png';
         const makeImg = () => { const i = new Image(); i.src = badgeSrc; return i; };
 
         document.getElementById('badge-left').innerHTML  = '';

@@ -187,7 +187,7 @@ body, html {
 
 .title {
     font-family: var(--font-sans);
-    font-size: 1.8rem;
+    font-size: 1.65rem;
     font-weight: 900;
     color: var(--primary-color);
     margin-bottom: 10px;
@@ -196,7 +196,7 @@ body, html {
 }
 .subtitle {
     font-family: var(--font-serif);
-    font-size: 1.0rem;
+    font-size: 1.05rem;
     color: var(--text-color);
     margin-bottom: 25px;
     letter-spacing: 2px;
@@ -308,10 +308,12 @@ body, html {
     overflow: hidden;
 }
 .parallax-container {
-    flex: 1;
+    flex: 0 0 auto;
     overflow: hidden;
     position: relative;
     margin: 0 20px;
+    aspect-ratio: 10 / 8;
+    max-height: 35vh;
     border-radius: 12px 12px 0 0;
     border: 1.5px solid var(--surface-color);
     border-bottom: none;
@@ -324,12 +326,13 @@ body, html {
     transition: transform 0.3s ease-out;
 }
 .story-info {
-    padding: 16px 20px;
+    padding: 18px 20px 22px;
     text-align: center;
-    flex: 0 0 25%;
+    flex: 1 1 auto;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     overflow-y: auto;
     background: linear-gradient(to bottom, rgba(224, 206, 182, 0.97), var(--bg-color));
     margin: 0 20px;
